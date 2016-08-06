@@ -14,7 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-  <title>My App</title>
+  <title>freshly.st</title>
 
   <link rel="shortcut icon" sizes="32x32" href="/images/app-icon-32.png">
 
@@ -36,7 +36,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // polyfill web components
         var e = document.createElement('script');
         e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
-        document.body.appendChild(e);
+        document.head.appendChild(e);
       }
     })();
 
@@ -66,7 +66,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 </head>
 <body>
 
-  <my-app>My App</my-app>
+  <my-app></my-app>
 
 </body>
 </html>
