@@ -9,7 +9,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/spotify-element/spotify-element.html">
 
 <dom-module id="my-view1">
 
@@ -22,11 +21,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
       .card {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        padding: 16px;
         margin: 24px;
         border-radius: 5px;
         background-color: #fff;
         color: #757575;
+
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        height: auto;
       }
       .circle {
         display: inline-block;
@@ -44,12 +49,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 16px 0;
         color: #212121;
       }
+      .card iframe,
+      .card object,
+      .card embed {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
     </style>
 
     <div class="card">
-      <spotify-element theme="dark" view="coverart" type="large" spotifyURL="https://play.spotify.com/user/113187337/playlist/3K3tteHANPHiTTZ6ZPee0M"/>
+      <iframe src="https://embed.spotify.com/?uri=spotify:user:113187337:playlist:3K3tteHANPHiTTZ6ZPee0M" frameborder="0" allowtransparency="true"></iframe>
     </div>
-
 
   </template>
 
