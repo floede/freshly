@@ -25,23 +25,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="my-app">
   <template>
     <style>
-      :host {
-        --app-primary-color: #4285f4;
-        --app-secondary-color: black;
+    :host {
+      display: block;
+      /*--app-primary-color: #4285f4;*/
+      /*--app-secondary-color: black;*/
+      --dark-primary-color: #388E3C;
+      --default-primary-color: #4CAF50;
+      --light-primary-color: #C8E6C9;
+      --text-primary-color: #FFFFFF;
+      --accent-color: #CDDC39;
+      --primary-text-color: #212121;
+      --secondary-text-color: #727272;
+      --divider-color: #B6B6B6;
+    }
 
-        display: block;
-      }
-
-      app-header {
-        color: #fff;
-        background-color: var(--app-primary-color);
-      }
-      app-header paper-icon-button {
-        --paper-icon-button-ink-color: white;
-      }
+    app-header {
+      background-color: var(--default-primary-color);
+      color: var(--text-primary-color);
+    }
+    app-header paper-icon-button {
+      --paper-icon-button-ink-color: white;
+    }
 
       .drawer-list {
         margin: 0 20px;
+        background: var(--dark-primary-color);
       }
 
       .drawer-list a {
@@ -51,7 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         text-decoration: none;
 
-        color: var(--app-secondary-color);
+        color: var(--accent-color);
 
         line-height: 40px;
       }
@@ -75,9 +83,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">View One</a>
-          <a name="view2" href="/view2">View Two</a>
-          <a name="view3" href="/view3">View Three</a>
+          <a name="player" href="/player">Player</a>
+          <a name="support" href="/support">Support</a>
         </iron-selector>
       </app-drawer>
 
@@ -87,7 +94,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-header condenses reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-            <div main-title>My App</div>
+            <div main-title>Freshlyst</div>
           </app-toolbar>
         </app-header>
 
@@ -96,9 +103,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-view1 name="view1"></my-view1>
+          <my-player name="player"></my-player>
           <my-view2 name="view2"></my-view2>
-          <my-view3 name="view3"></my-view3>
+          <my-support name="support"></my-support>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
       </app-header-layout>
@@ -122,7 +129,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'view1';
+        this.page = page || 'player';
       },
 
       _pageChanged: function(page) {
